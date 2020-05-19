@@ -1,8 +1,38 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+body{
+  padding: 0px;
+  margin: 0px;
+  margin-top: 0px;
+  position: fixed;
+  width: 100%;
+  height: 100%;
 }
-
+li {
+   display: inline;
+ }
 a {
   color: #00B7FF;
 }
+ #head_bar {
+   height: 8%;
+   width: 80%;
+   background-color: lightpink;
+   margin-top: 0px;
+ }
+ #wbid{
+   color: white;
+ }
+ 
+ #main_container{
+   width: 99%;
+   height: 85.3%;
+   background-color: teal;
+  margin: 3px;
+ }
+ #botton_nav{
+   width: 100%;
+   height: 6%;
+   background-color: gray;
+   position: absolute;
+   bottom: 0px;
+   right: 0px;
+ }
