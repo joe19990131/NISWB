@@ -6,7 +6,7 @@ body{
   width: 100%;
   height: 100%;
 }
-#statinfoul {
+.ul_horizental {
 margin: 0px;
 padding: 0px;
 display: inline;
@@ -22,6 +22,7 @@ display: inline;
    margin: 0px;
    padding: 0px;
    float: left;
+   height: 100%;
  }
  #member {
    margin-top: 14px;
@@ -38,13 +39,19 @@ a {
 #station_info {
   background-color: lightpink;
   float: left;
-  
-  height: 100%;
+  height: 100%; 
+}
+#weather_date{
+  background: -webkit-linear-gradient(left,lightpink,white);
+  height: 8%;
+  width: 78%;
+  position: fixed;
+  padding-left: 50px;
 }
  #head_bar {
    height: 8%;
    width: 80%;
-   background: -webkit-linear-gradient(left,lightpink,white);
+   
    margin-top: 0px;
  }
  #wbid{
