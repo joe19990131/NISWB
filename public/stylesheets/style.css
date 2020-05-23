@@ -25,7 +25,7 @@ display: inline;
    height: 100%;
  }
  #member {
-   margin-top: 14px;
+   margin-top: 11px;
  }
  .memberName {
    font-size: 20px;
@@ -58,7 +58,7 @@ a {
    color: white;
  }
  #marquee{
-   width: 98%;
+   width: 91%;
     height: 5%;
     background-color: rgb(201, 201, 201);
     padding: 0.7%;
@@ -71,6 +71,7 @@ a {
  marquee{
    text-align: initial;
     font-size: x-large;
+    line-height: 25px;
     
  }
  #main_container{
