@@ -14,7 +14,7 @@ display: inline;
 #NSTno{
   font-size: 48px;
   margin-left: 10px;
-  margin-top: 10px;
+  margin-top: 1.5%;
   color: white;
 }
 .li_horizental {
@@ -25,7 +25,7 @@ display: inline;
    height: 100%;
  }
  #member {
-   margin-top: 11px;
+   margin-top: 3%;
  }
  .memberName {
    font-size: 20px;
@@ -37,22 +37,26 @@ a {
   color: #00B7FF;
 }
 #station_info {
-  background-color: lightpink;
+  
   float: left;
   height: 100%; 
 }
 #weather_date{
-  background: -webkit-linear-gradient(left,lightpink,white);
-  height: 8%;
-  width: 78%;
+  margin-left: 800px;
+  width: 290px;
+  height: 75px;
+  border-bottom-width: 20px;
+  margin-bottom: 0px;
+  padding-left: 0px;
+  padding-bottom: 0px;
   position: fixed;
-  padding-left: 50px;
+  
 }
  #head_bar {
    height: 8%;
    width: 80%;
-   
    margin-top: 0px;
+   background-image: url("images/nisheaderbg.png");
  }
  #wbid{
    color: white;
@@ -65,6 +69,8 @@ a {
     margin-left: 1%;
     margin-right: 1%;
     margin-top: 4PX;
+    position: relative;
+    z-index: 9999;
     
     
  }
@@ -77,7 +83,6 @@ a {
  #main_container{
    width: 98%;
    height: 80.5%;
-   background-color: teal;
   margin-left: 1%;
   margin-right: 1%;
   margin-top: 0.2%;
