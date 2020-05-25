@@ -14,7 +14,7 @@ display: inline;
 #NSTno{
   font-size: 48px;
   margin-left: 10px;
-  margin-top: 1.5%;
+  margin-top: 3%;
   color: white;
 }
 .li_horizental {
@@ -25,7 +25,7 @@ display: inline;
    height: 100%;
  }
  #member {
-   margin-top: 3%;
+   margin-top: 6%;
  }
  .memberName {
    font-size: 20px;
