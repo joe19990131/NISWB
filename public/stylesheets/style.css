@@ -92,6 +92,13 @@ a {
    width: 93%;
    height: 100%;
    background-color: gray;
+   float: left;
+ }
+ #main_list {
+  width: 5%;
+  height: 100%;
+  background-color: aquamarine;
+  float: right;
  }
  #botton_nav{
    width: 100%;
