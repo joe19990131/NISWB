@@ -25,13 +25,14 @@ display: inline;
    height: 100%;
  }
  #member {
-   margin-top: 6%;
+   margin-top: 7.6%;
  }
  .memberName {
    font-size: 20px;
    list-style: none;
    margin: 2px;
    color: black;
+   font-family: Microsoft JhengHei;
  }
 a {
   color: #00B7FF;
@@ -103,6 +104,29 @@ a {
 #time {
  float: right;
  position: fixed;
- right: 2%;
- top: 1%;
+ right: 1%;
+ top: 1.4%;
+}
+#clock {
+  font-size:40px;
+}
+#date {
+  float: right;
+  font-size: 23px;
+  font-style: oblique;
+  margin-right: 1.2%;
+}
+#week {
+  float: right;
+  font-size: 20px;
+  position: fixed;
+  top: 10%;
+  right: 1.1%;
+}
+#tel{
+  margin-top: 3.3%;
+  font-size: 22px;
+  font-family: Microsoft JhengHei;
+  list-style: none;
+  color: white;
 }

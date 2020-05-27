@@ -19,7 +19,7 @@
     <ul calss="ul_horizental">
       <li  class="li_horizental" id="NSTno">AA12</li>
 
-      <li class="li_horizental">
+      <li id="tel" class="li_horizental">
         <ul style="list-style: none;">
           <li>病房分機</li>
           <li style="list-style: none;">
@@ -74,8 +74,11 @@
   var hh = today.getHours();
   var mm = today.getMinutes();
   var ss = today.getSeconds();
+  var hhI12 = checkHour(hh);
+  var ampm = isAfternnoon(hh);
   mm = checkTime(mm);
   ss = checkTime(ss);
+ 
   var yyyy = today.getFullYear();
   var month = today.getMonth()+1;
   var dd = today.getDate();
@@ -88,15 +91,31 @@
   weekday[5] = "星期五";
   weekday[6] = "星期六";
 var week = weekday[today.getDay()];
-  document.getElementById('clock').innerHTML = hh + ":" + mm;
+  document.getElementById('clock').innerHTML = hh + ":" + mm+' '+ampm;
   document.getElementById('date').innerHTML = yyyy+'/'+month+'/'+dd;
   document.getElementById('week').innerHTML = week;
   var timeoutId = setTimeout(startTime, 500);
+};
+function checkHour(i){
+  if(i>12){
+    var hhIn12 = i-12;
+    }else if(hhIn12<10){
+      hhIn12 = "0" + hhIn12;
+  }
+  return hhIn12;
 }
-
 function checkTime(i){
   if(i < 10) {
     i = "0" + i;
+  }
+  return i;
+}
+function isAfternnoon(hh){
+  var i;
+  if(hh>=12){
+    i = "PM";
+  }else{
+    i = "AM";
   }
   return i;
 }
