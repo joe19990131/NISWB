@@ -10,7 +10,7 @@
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
     <script src="/kendo/js/kendo.all.min.js"></script>
   </head>
-  <body>
+  <body onload="startTime()">
     
 <div id="head_bar">
   <ul class="ul_horizental">
@@ -18,6 +18,17 @@
       <div id="station_info">
     <ul calss="ul_horizental">
       <li  class="li_horizental" id="NSTno">AA12</li>
+
+      <li class="li_horizental">
+        <ul style="list-style: none;">
+          <li>病房分機</li>
+          <li style="list-style: none;">
+              <li class="li_horizental" id="tel1">2380</li>
+              <li class="li_horizental">/</li>
+              <li class="li_horizental" id="tel2">2583</li>
+          </li>
+        </ul>
+      </li>
       <li  class="li_horizental">
         <ul id="member">
           <li class="memberName" id="WD_name">病房主任：XXX</li>
@@ -33,8 +44,20 @@
         <a class="weatherwidget-io" href="https://forecast7.com/zh-tw/25d02121d46/new-taipei-city/" data-font="微軟正黑體 (Microsoft JhengHei)" data-mode="Current" data-theme="pure" >New Taipei City, Taiwan</a>
       </div>
    </li>
-  </ul>
   
+  </ul>
+  <ul id="time" style="z-index: 9999;">
+    <li class="li_horizental">
+      <div id="clock">00:00</div>
+     </li>
+     <li style="list-style: none;">
+      <div id="date">2020/05/27</div>
+    </li>
+     <li style="list-style: none;">
+      <div id="week">星期三</div>
+    </li>
+  </ul>
+   
  
 </div>
 <div id="marquee"><marquee direction="right" scrollamount="5" behavior="alternate">跑馬燈測試</marquee></div>
@@ -45,5 +68,37 @@
 </body>
 <script>
   !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+
+  function startTime(){
+  var today = new Date();
+  var hh = today.getHours();
+  var mm = today.getMinutes();
+  var ss = today.getSeconds();
+  mm = checkTime(mm);
+  ss = checkTime(ss);
+  var yyyy = today.getFullYear();
+  var month = today.getMonth()+1;
+  var dd = today.getDate();
+  var weekday = new Array(7);
+  weekday[0] = "星期日";
+  weekday[1] = "星期一";
+  weekday[2] = "星期二";
+  weekday[3] = "星期三";
+  weekday[4] = "星期四";
+  weekday[5] = "星期五";
+  weekday[6] = "星期六";
+var week = weekday[today.getDay()];
+  document.getElementById('clock').innerHTML = hh + ":" + mm;
+  document.getElementById('date').innerHTML = yyyy+'/'+month+'/'+dd;
+  document.getElementById('week').innerHTML = week;
+  var timeoutId = setTimeout(startTime, 500);
+}
+
+function checkTime(i){
+  if(i < 10) {
+    i = "0" + i;
+  }
+  return i;
+}
   </script>
 </html>

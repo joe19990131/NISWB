@@ -100,3 +100,9 @@ a {
    bottom: 0px;
    right: 0px;
  }
+#time {
+ float: right;
+ position: fixed;
+ right: 2%;
+ top: 1%;
+}
