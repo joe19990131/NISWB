@@ -65,7 +65,58 @@
 <div id="main_viewer">222</div>
 <div id="main_list"></div>
 </div>
-<div id="botton_nav">54</div>
+<div id="botton_nav">
+  <div class="botton_btn" id="dnr_btn">
+    <div class="btn_count" id="dnr_count"></div>
+    <div class="botton_btn_text">DNR</div>
+    <div style="clear: both;"></div>
+  </div>
+  <div class="botton_btn" id="vs_btn">
+    <div class="btn_count" id="vs_count"></div>
+    <div class="botton_btn_text">生訊</div>
+    <div style="clear: both;"></div>
+  </div>
+  <div class="botton_btn" id="lab_btn">
+    <div class="btn_count" id="lab_count"></div>
+    <div class="botton_btn_text">檢查</div>
+    <div style="clear: both;"></div>
+  </div>
+  <div class="botton_btn" id="sur_btn">
+    <div class="btn_count" id="sur_count"></div>
+    <div class="botton_btn_text">手術</div>
+    <div style="clear: both;"></div>
+  </div>
+  <div class="botton_btn" id="hd_btn">
+    <div class="btn_count" id="hd_count"></div>
+    <div class="botton_btn_text">洗腎</div>
+    <div style="clear: both;"></div>
+  </div>
+  <div class="botton_btn" id="quar_btn">
+    <div class="btn_count" id="quar_count"></div>
+    <div class="botton_btn_text">隔離</div>
+    <div style="clear: both;"></div>
+  </div>
+  <div class="botton_btn" id="cc_btn">
+    <div class="btn_count" id="cc_count"></div>
+    <div class="botton_btn_text">心導管</div>
+    <div style="clear: both;"></div>
+  </div>
+  <div class="botton_btn" id="air_btn">
+    <div class="btn_count" id="air_count"></div>
+    <div class="botton_btn_text">呼吸器</div>
+    <div style="clear: both;"></div>
+  </div>
+  <div class="botton_btn" id="vl_btn" style="width: 125px;">
+    <div class="btn_count" id="vl_count"></div>
+    <div class="botton_btn_text">訪客限制</div>
+    <div style="clear: both;"></div>
+  </div>
+  <div class="botton_btn" id="mi_btn" style="width: 125px;">
+    <div class="btn_count" id="mi_count"></div>
+    <div class="botton_btn_text">母嬰同室</div>
+    <div style="clear: both;"></div>
+  </div>
+</div>
 </body>
 <script>
   !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
@@ -92,18 +143,21 @@
   weekday[5] = "星期五";
   weekday[6] = "星期六";
 var week = weekday[today.getDay()];
-  document.getElementById('clock').innerHTML = hh + ":" + mm+' '+ampm;
+  document.getElementById('clock').innerHTML = hhI12 + ":" + mm+' '+ampm;
   document.getElementById('date').innerHTML = yyyy+'/'+month+'/'+dd;
   document.getElementById('week').innerHTML = week;
   var timeoutId = setTimeout(startTime, 500);
 };
 function checkHour(i){
-  if(i>12){
-    var hhIn12 = i-12;
-    }else if(hhIn12<10){
-      hhIn12 = "0" + hhIn12;
+  if(i>12 && i<22){
+    var i = '0'+(i-12);
+    }
+    else if(i<10){
+      i = "0" + i;
+  }else if(i>21){
+    var i = i-12;
   }
-  return hhIn12;
+  return i;
 }
 function checkTime(i){
   if(i < 10) {

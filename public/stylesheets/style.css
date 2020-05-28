@@ -137,3 +137,28 @@ a {
   list-style: none;
   color: white;
 }
+.botton_btn{
+  border-radius: 50px;
+  background-color: lightgrey;
+  width: 100px;
+  height: 30px;
+  margin-top: 8px;
+  margin-left: 25px;
+  margin-right: 10px;
+  float: left;
+}
+.btn_count{
+  border-radius: 50%;
+  background-color: white;
+  width: 24px;
+  height: 24px;
+  margin: 3px;
+    float: left;
+}
+.botton_btn_text{
+  float: left;
+  line-height: 30px;
+  font-size: 18px;
+  margin-left: 8px;
+  text-align: center;
+}
