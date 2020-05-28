@@ -97,8 +97,26 @@ a {
  #main_list {
   width: 5%;
   height: 100%;
-  background-color: aquamarine;
   float: right;
+ }
+ .side_btn{
+  width: 80px;
+  height: 80px;
+  border-radius: 80px;
+  background-color: lightgray;
+  position: fixed;
+ }
+ #exit{
+bottom: 60px;
+ }
+ #edu{
+   bottom: 160px;
+ }
+ #lab{
+   bottom: 260px;
+ }
+ #duty{
+   bottom: 360px;
  }
  #botton_nav{
    width: 100%;
