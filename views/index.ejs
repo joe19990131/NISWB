@@ -62,12 +62,18 @@
 </div>
 <div id="marquee"><marquee direction="right" scrollamount="5" behavior="alternate">跑馬燈測試</marquee></div>
 <div id="main_container">
-<div id="main_viewer">222</div>
+<div id="main_viewer">
+  <div id="p_ist"></div>
+  <div id="duty_view"></div>
+  <div id="lab_view"></div>
+  <div id="edu_view"></div>
+  <div id="exit_view"></div>
+</div>
 <div id="main_list">
-  <div class="side_btn" id="duty"><img src="stylesheets/images/calendar.png" width="60px" height="60px" style="margin-top: 10px;margin-left: 10px;"></div>
-  <div class="side_btn" id="lab"><img src="stylesheets/images/research.png" width="60px" height="60px" style="margin-top: 10px;margin-left: 10px;"></div>
-  <div class="side_btn" id="edu"><img src="stylesheets/images/teaching.png" width="60px" height="60px" style="margin-top: 10px;margin-left: 10px;"></div>
-  <div class="side_btn" id="exit"><img src="stylesheets/images/logout.png" width="60px" height="60px" style="margin-top: 10px;margin-left: 10px;"></div>
+  <div class="side_btn" id="duty"><img class="side_btn_img" src="stylesheets/images/calendar.png" width="35px" height="35px"></div>
+  <div class="side_btn" id="lab"><img class="side_btn_img" src="stylesheets/images/research.png" width="35px" height="35px"></div>
+  <div class="side_btn" id="edu"><img class="side_btn_img" src="stylesheets/images/teaching.png" width="35px" height="35px"></div>
+  <div class="side_btn" id="exit"><img class="side_btn_img" src="stylesheets/images/logout.png" width="35px" height="35px"></div>
 </div>
 </div>
 <div id="botton_nav">
@@ -125,7 +131,6 @@
 </body>
 <script>
   !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
-
   function startTime(){
   var today = new Date();
   var hh = today.getHours();
@@ -153,7 +158,7 @@ var week = weekday[today.getDay()];
   document.getElementById('week').innerHTML = week;
   var timeoutId = setTimeout(startTime, 500);
 };
-function checkHour(i){
+  function checkHour(i){
   if(i>12 && i<22){
     var i = '0'+(i-12);
     }
@@ -164,13 +169,13 @@ function checkHour(i){
   }
   return i;
 }
-function checkTime(i){
+  function checkTime(i){
   if(i < 10) {
     i = "0" + i;
   }
   return i;
 }
-function isAfternnoon(hh){
+  function isAfternnoon(hh){
   var i;
   if(hh>=12){
     i = "PM";
@@ -179,5 +184,6 @@ function isAfternnoon(hh){
   }
   return i;
 }
+  
   </script>
 </html>
