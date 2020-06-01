@@ -1,7 +1,21 @@
 var express = require('express');
 var router = express.Router();
+var mysql = require('mysql');
+var bodyParser = require('body-parser');
 
 /* GET home page. */
+
+
+//sql qetting
+var conn = mysql.createConnection({
+  host : 'localhost',
+  prot : '3306',
+  user: 'root',
+  password : '123456',
+  database : 'nisdb'
+});
+//sql setting end
+
 router.get('/', function(req, res, next) {
   res.location('/')
   res.render('index', { title: 'Express' });

@@ -87,7 +87,7 @@ a {
   margin-left: 1%;
   margin-top: 0.2%;
  }
- #main_viewer{
+ .main_viewer{
    width: 94.5%;
    height: 100%;
    background-color: gray;
