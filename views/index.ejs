@@ -62,7 +62,7 @@
 </div>
 <div id="marquee"><marquee direction="right" scrollamount="5" behavior="alternate">跑馬燈測試</marquee></div>
 <div id="main_container">
-  <div class="main_viewer" id="p_ist"></div>
+  <div class="main_viewer" id="p_list">11</div>
   <div class="main_viewer" id="duty_view" style="background-color: blue;display: none;"></div>
   <div class="main_viewer" id="lab_view" style="background-color: blueviolet;display: none;"></div>
   <div class="main_viewer" id="edu_view" style="background-color: brown;display: none;"></div>
@@ -106,12 +106,12 @@
     <div class="botton_btn_text">隔離</div>
     <div style="clear: both;"></div>
   </div>
-  <div class="botton_btn" id="cc_btn">
+  <div class="botton_btn" id="cc_btn" style="width: 115px;">
     <div class="btn_count" id="cc_count"></div>
     <div class="botton_btn_text">心導管</div>
     <div style="clear: both;"></div>
   </div>
-  <div class="botton_btn" id="air_btn">
+  <div class="botton_btn" id="air_btn" style="width: 115px;">
     <div class="btn_count" id="air_count"></div>
     <div class="botton_btn_text">呼吸器</div>
     <div style="clear: both;"></div>
@@ -183,6 +183,24 @@ var week = weekday[today.getDay()];
   }
   return i;
 }
-  
+  var dViewCk;
+  $("#duty").click(function(){
+    
+     if(dViewCk == 1){
+      $("#duty_view").hide();
+      $("#p_list").show();
+      dViewCk = 0;
+      console.log(dViewCk+"close");     
+     }else{
+      $("#p_list").hide();
+      $("#lab_view").hide();
+      $("#edu_view").hide();
+      $("#exit_view").hide();
+      $("#duty_view").show();
+      dViewCk = 1;
+      console.log(dViewCk+'open')   
+     }
+ 
+  })
   </script>
 </html>
