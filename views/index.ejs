@@ -1,206 +1,241 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" href="/kendo/css/kendo.common-material.min.css">
-    <link rel="stylesheet" href="/kendo/css/kendo.material.min.css">
-    <script src="/jquery/jquery-2.1.4.min.js"></script>
-    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
-    <script src="/kendo/js/kendo.all.min.js"></script>
-  </head>
-  <body onload="startTime()">
-    
-<div id="head_bar">
-  <ul class="ul_horizental">
-    <li class="li_horizental">
-      <div id="station_info">
-    <ul calss="ul_horizental">
-      <li  class="li_horizental" id="NSTno">AA12</li>
 
-      <li id="tel" class="li_horizental">
-        <ul style="list-style: none;">
-          <li>病房分機</li>
-          <li style="list-style: none;">
-              <li class="li_horizental" id="tel1">2380</li>
-              <li class="li_horizental">/</li>
-              <li class="li_horizental" id="tel2">2583</li>
-          </li>
-        </ul>
+<head>
+  <title><%= title %></title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="/kendo/css/kendo.common-material.min.css">
+  <link rel="stylesheet" href="/kendo/css/kendo.material.min.css">
+  <script src="/jquery/jquery-2.1.4.min.js"></script>
+  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+  <script src="/kendo/js/kendo.all.min.js"></script>
+</head>
+
+<body onload="startTime()">
+
+  <div id="head_bar">
+    <ul class="ul_horizental">
+      <li class="li_horizental">
+        <div id="station_info">
+          <ul calss="ul_horizental">
+            <li class="li_horizental" id="NSTno">AA12</li>
+
+            <li id="tel" class="li_horizental">
+              <ul style="list-style: none;">
+                <li>病房分機</li>
+                <li style="list-style: none;">
+                <li class="li_horizental" id="tel1">2380</li>
+                <li class="li_horizental">/</li>
+                <li class="li_horizental" id="tel2">2583</li>
+            </li>
+          </ul>
       </li>
-      <li  class="li_horizental">
+      <li class="li_horizental">
         <ul id="member">
           <li class="memberName" id="WD_name">病房主任：XXX</li>
           <li class="memberName" id="HN_name">護理長：OOO</li>
         </ul>
       </li>
-      
+
     </ul>
   </div>
-    </li>
-    <li class="li_horizental">
-      <div id="weather_date">
-        <a class="weatherwidget-io" href="https://forecast7.com/zh-tw/25d02121d46/new-taipei-city/" data-font="微軟正黑體 (Microsoft JhengHei)" data-mode="Current" data-theme="pure" >New Taipei City, Taiwan</a>
-      </div>
-   </li>
-  
+  </li>
+  <li class="li_horizental">
+    <div id="weather_date">
+      <a class="weatherwidget-io" href="https://forecast7.com/zh-tw/25d02121d46/new-taipei-city/"
+        data-font="微軟正黑體 (Microsoft JhengHei)" data-mode="Current" data-theme="pure">New Taipei City, Taiwan</a>
+    </div>
+  </li>
+
   </ul>
   <ul id="time" style="z-index: 9999;">
     <li class="li_horizental">
       <div id="clock">00:00</div>
-     </li>
-     <li style="list-style: none;">
+    </li>
+    <li style="list-style: none;">
       <div id="date">2020/05/27</div>
     </li>
-     <li style="list-style: none;">
+    <li style="list-style: none;">
       <div id="week">星期三</div>
     </li>
   </ul>
-   
- 
-</div>
-<div id="marquee"><marquee direction="right" scrollamount="5" behavior="alternate">跑馬燈測試</marquee></div>
-<div id="main_container">
-  <div class="main_viewer" id="p_list">11</div>
-  <div class="main_viewer" id="duty_view" style="background-color: blue;display: none;"></div>
-  <div class="main_viewer" id="lab_view" style="background-color: blueviolet;display: none;"></div>
-  <div class="main_viewer" id="edu_view" style="background-color: brown;display: none;"></div>
-  <div class="main_viewer" id="exit_view" style="background-color:cadetblue;display: none;"></div>
 
-<div id="main_list">
-  <div class="side_btn" id="duty"><img class="side_btn_img" src="stylesheets/images/calendar.png" width="35px" height="35px"></div>
-  <div class="side_btn" id="lab"><img class="side_btn_img" src="stylesheets/images/research.png" width="35px" height="35px"></div>
-  <div class="side_btn" id="edu"><img class="side_btn_img" src="stylesheets/images/teaching.png" width="35px" height="35px"></div>
-  <div class="side_btn" id="exit"><img class="side_btn_img" src="stylesheets/images/logout.png" width="35px" height="35px"></div>
-</div>
-</div>
-<div id="botton_nav">
-  <div class="botton_btn" id="dnr_btn">
-    <div class="btn_count" id="dnr_count"></div>
-    <div class="botton_btn_text">DNR</div>
-    <div style="clear: both;"></div>
+
   </div>
-  <div class="botton_btn" id="vs_btn">
-    <div class="btn_count" id="vs_count"></div>
-    <div class="botton_btn_text">生訊</div>
-    <div style="clear: both;"></div>
+  <div id="marquee">
+    <marquee direction="right" scrollamount="5" behavior="alternate">跑馬燈測試</marquee>
   </div>
-  <div class="botton_btn" id="lab_btn">
-    <div class="btn_count" id="lab_count"></div>
-    <div class="botton_btn_text">檢查</div>
-    <div style="clear: both;"></div>
+  <div id="main_container">
+    <div class="main_viewer" id="p_list">11</div>
+    <div class="main_viewer" id="duty_view" style="background-color: blue;display: none;"></div>
+    <div class="main_viewer" id="lab_view" style="background-color: blueviolet;display: none;"></div>
+    <div class="main_viewer" id="edu_view" style="background-color: brown;display: none;"></div>
+    <div class="main_viewer" id="exit_view" style="background-color:cadetblue;display: none;"></div>
+
+    <div id="main_list">
+      <div class="side_btn" id="duty"><img class="side_btn_img" src="stylesheets/images/calendar.png" width="35px"
+          height="35px"></div>
+      <div class="side_btn" id="lab"><img class="side_btn_img" src="stylesheets/images/research.png" width="35px"
+          height="35px"></div>
+      <div class="side_btn" id="edu"><img class="side_btn_img" src="stylesheets/images/teaching.png" width="35px"
+          height="35px"></div>
+      <div class="side_btn" id="exit"><img class="side_btn_img" src="stylesheets/images/logout.png" width="35px"
+          height="35px"></div>
+    </div>
   </div>
-  <div class="botton_btn" id="sur_btn">
-    <div class="btn_count" id="sur_count"></div>
-    <div class="botton_btn_text">手術</div>
-    <div style="clear: both;"></div>
+  <div id="botton_nav">
+    <div class="botton_btn" id="dnr_btn">
+      <div class="btn_count" id="dnr_count"></div>
+      <div class="botton_btn_text">DNR</div>
+      <div style="clear: both;"></div>
+    </div>
+    <div class="botton_btn" id="vs_btn">
+      <div class="btn_count" id="vs_count"></div>
+      <div class="botton_btn_text">生訊</div>
+      <div style="clear: both;"></div>
+    </div>
+    <div class="botton_btn" id="lab_btn">
+      <div class="btn_count" id="lab_count"></div>
+      <div class="botton_btn_text">檢查</div>
+      <div style="clear: both;"></div>
+    </div>
+    <div class="botton_btn" id="sur_btn">
+      <div class="btn_count" id="sur_count"></div>
+      <div class="botton_btn_text">手術</div>
+      <div style="clear: both;"></div>
+    </div>
+    <div class="botton_btn" id="hd_btn">
+      <div class="btn_count" id="hd_count"></div>
+      <div class="botton_btn_text">洗腎</div>
+      <div style="clear: both;"></div>
+    </div>
+    <div class="botton_btn" id="quar_btn">
+      <div class="btn_count" id="quar_count"></div>
+      <div class="botton_btn_text">隔離</div>
+      <div style="clear: both;"></div>
+    </div>
+    <div class="botton_btn" id="cc_btn" style="width: 115px;">
+      <div class="btn_count" id="cc_count"></div>
+      <div class="botton_btn_text">心導管</div>
+      <div style="clear: both;"></div>
+    </div>
+    <div class="botton_btn" id="air_btn" style="width: 115px;">
+      <div class="btn_count" id="air_count"></div>
+      <div class="botton_btn_text">呼吸器</div>
+      <div style="clear: both;"></div>
+    </div>
+    <div class="botton_btn" id="vl_btn" style="width: 125px;">
+      <div class="btn_count" id="vl_count"></div>
+      <div class="botton_btn_text">訪客限制</div>
+      <div style="clear: both;"></div>
+    </div>
+    <div class="botton_btn" id="mi_btn" style="width: 125px;">
+      <div class="btn_count" id="mi_count"></div>
+      <div class="botton_btn_text">母嬰同室</div>
+      <div style="clear: both;"></div>
+    </div>
   </div>
-  <div class="botton_btn" id="hd_btn">
-    <div class="btn_count" id="hd_count"></div>
-    <div class="botton_btn_text">洗腎</div>
-    <div style="clear: both;"></div>
-  </div>
-  <div class="botton_btn" id="quar_btn">
-    <div class="btn_count" id="quar_count"></div>
-    <div class="botton_btn_text">隔離</div>
-    <div style="clear: both;"></div>
-  </div>
-  <div class="botton_btn" id="cc_btn" style="width: 115px;">
-    <div class="btn_count" id="cc_count"></div>
-    <div class="botton_btn_text">心導管</div>
-    <div style="clear: both;"></div>
-  </div>
-  <div class="botton_btn" id="air_btn" style="width: 115px;">
-    <div class="btn_count" id="air_count"></div>
-    <div class="botton_btn_text">呼吸器</div>
-    <div style="clear: both;"></div>
-  </div>
-  <div class="botton_btn" id="vl_btn" style="width: 125px;">
-    <div class="btn_count" id="vl_count"></div>
-    <div class="botton_btn_text">訪客限制</div>
-    <div style="clear: both;"></div>
-  </div>
-  <div class="botton_btn" id="mi_btn" style="width: 125px;">
-    <div class="btn_count" id="mi_count"></div>
-    <div class="botton_btn_text">母嬰同室</div>
-    <div style="clear: both;"></div>
-  </div>
-</div>
 </body>
 <script>
-  !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
-  function startTime(){
-  var today = new Date();
-  var hh = today.getHours();
-  var mm = today.getMinutes();
-  var ss = today.getSeconds();
-  var hhI12 = checkHour(hh);
-  var ampm = isAfternnoon(hh);
-  mm = checkTime(mm);
-  ss = checkTime(ss);
- 
-  var yyyy = today.getFullYear();
-  var month = today.getMonth()+1;
-  var dd = today.getDate();
-  var weekday = new Array(7);
-  weekday[0] = "星期日";
-  weekday[1] = "星期一";
-  weekday[2] = "星期二";
-  weekday[3] = "星期三";
-  weekday[4] = "星期四";
-  weekday[5] = "星期五";
-  weekday[6] = "星期六";
-var week = weekday[today.getDay()];
-  document.getElementById('clock').innerHTML = hhI12 + ":" + mm+' '+ampm;
-  document.getElementById('date').innerHTML = yyyy+'/'+month+'/'+dd;
-  document.getElementById('week').innerHTML = week;
-  var timeoutId = setTimeout(startTime, 500);
-};
-  function checkHour(i){
-  if(i>12 && i<22){
-    var i = '0'+(i-12);
+  !function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = 'https://weatherwidget.io/js/widget.min.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'weatherwidget-io-js');
+  function startTime() {
+    var today = new Date();
+    var hh = today.getHours();
+    var mm = today.getMinutes();
+    var ss = today.getSeconds();
+    var hhI12 = checkHour(hh);
+    var ampm = isAfternnoon(hh);
+    mm = checkTime(mm);
+    ss = checkTime(ss);
+
+    var yyyy = today.getFullYear();
+    var month = today.getMonth() + 1;
+    var dd = today.getDate();
+    var weekday = new Array(7);
+    weekday[0] = "星期日";
+    weekday[1] = "星期一";
+    weekday[2] = "星期二";
+    weekday[3] = "星期三";
+    weekday[4] = "星期四";
+    weekday[5] = "星期五";
+    weekday[6] = "星期六";
+    var week = weekday[today.getDay()];
+    document.getElementById('clock').innerHTML = hhI12 + ":" + mm + ' ' + ampm;
+    document.getElementById('date').innerHTML = yyyy + '/' + month + '/' + dd;
+    document.getElementById('week').innerHTML = week;
+    var timeoutId = setTimeout(startTime, 500);
+  };
+  function checkHour(i) {
+    if (i > 12 && i < 22) {
+      var i = '0' + (i - 12);
     }
-    else if(i<10){
+    else if (i < 10) {
       i = "0" + i;
-  }else if(i>21){
-    var i = i-12;
+    } else if (i > 21) {
+      var i = i - 12;
+    }
+    return i;
   }
-  return i;
-}
-  function checkTime(i){
-  if(i < 10) {
-    i = "0" + i;
+  function checkTime(i) {
+    if (i < 10) {
+      i = "0" + i;
+    }
+    return i;
   }
-  return i;
-}
-  function isAfternnoon(hh){
-  var i;
-  if(hh>=12){
-    i = "PM";
-  }else{
-    i = "AM";
+  function isAfternnoon(hh) {
+    var i;
+    if (hh >= 12) {
+      i = "PM";
+    } else {
+      i = "AM";
+    }
+    return i;
   }
-  return i;
-}
   var dViewCk;
-  $("#duty").click(function(){
-    
-     if(dViewCk == 1){
-      $("#duty_view").hide();
-      $("#p_list").show();
-      dViewCk = 0;
-      console.log(dViewCk+"close");     
-     }else{
-      $("#p_list").hide();
-      $("#lab_view").hide();
-      $("#edu_view").hide();
-      $("#exit_view").hide();
-      $("#duty_view").show();
-      dViewCk = 1;
-      console.log(dViewCk+'open')   
-     }
- 
+  $("#duty").click(function () {
+    $("#lab_view").hide();
+    $("#exit_view").hide();
+    $("#duty_view").show();
+    $("#edu_view").hide();
+    $("#p_list").hide();
+    console.log(dViewCk + "close");
+
   })
-  </script>
+  $("#lab").click(function () {
+    $("#lab_view").show();
+    $("#exit_view").hide();
+    $("#duty_view").hide();
+    $("#edu_view").hide();
+    $("#p_list").hide();
+
+    console.log(dViewCk + "close");
+
+  })
+  $("#edu").click(function () {
+
+    $("#lab_view").hide();
+    $("#exit_view").hide();
+    $("#duty_view").hide();
+    $("#edu_view").show();
+    $("#p_list").hide();
+
+    console.log(dViewCk + "close");
+
+  })
+  $("#exit").click(function () {
+
+
+    $("#lab_view").hide();
+    $("#exit_view").show();
+    $("#duty_view").hide();
+    $("#edu_view").hide();
+    $("#p_list").hide();
+
+    console.log(dViewCk + "close");
+
+  })
+</script>
+
 </html>
