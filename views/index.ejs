@@ -136,7 +136,9 @@
       </table>
     </div>
     <div class="main_viewer" id="duty_view" style="background-color: blue;display: none;"></div>
-    <div class="main_viewer" id="lab_view" style="background-color: blueviolet;display: none;"></div>
+    <div class="main_viewer" id="lab_view" style="background-color: blueviolet;display: none;">
+      <div id="lab_grid"></div>
+    </div>
     <div class="main_viewer" id="edu_view" style="background-color: brown;display: none;"></div>
     <div class="main_viewer" id="exit_view" style="background-color:cadetblue;display: none;"></div>
 
@@ -260,6 +262,7 @@
     return i;
   }
   var dViewCk;
+  var gridCount = 0;
   $("#duty").click(function () {
     $("#lab_view").hide();
     $("#exit_view").hide();
@@ -275,9 +278,52 @@
     $("#duty_view").hide();
     $("#edu_view").hide();
     $("#p_list").hide();
-
-    console.log(dViewCk + "close");
-
+    //console.log(dViewCk + "close");
+    if (gridCount != 0) {
+            $("#lab_grid").data('kendoGrid').destroy();
+        }
+        gridCount++;
+        var params = {
+                "nstNo" : $("#NSTno").val(),
+               
+        };
+        $("#lab_grid").kendoGrid({
+          dataSource:{
+                transport: {
+                    read: {
+                        method: "post",
+                        url: "/lab",
+                        dataType: "json",
+                        data: params
+                    }
+                },
+                schema: {
+                    model: {
+                        fields: {
+                          nst: { type: "string" },  
+                          BNo: { type: "string" },
+                          CkCon: { type: "string" },
+                          ckdate: { type: "string" }
+                        }
+                    }
+                },
+                pageSize: 20,
+            },
+          height:600,
+          columns:[
+                  {field:"mst",title:"護理站",width:"10%"},
+                  {field:"BNo",title:"床號",width:"20%"},
+                  {field:"CkCon",title:"檢驗",width:"40%"},
+                  {field:"ckdate",title:"日期",width:"30%"},
+          ],
+          sortable:true,
+          scrollable: true,
+                        sortable: true,
+                        pageable: {
+                            input: true,
+                            numeric: false
+                        },
+  });
   })
   $("#edu").click(function () {
 
