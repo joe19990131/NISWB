@@ -138,6 +138,11 @@
     <div class="main_viewer" id="duty_view" style="background-color: blue;display: none;"></div>
     <div class="main_viewer" id="lab_view" style="background-color: blueviolet;display: none;">
       <div id="lab_grid"></div>
+      <div id="lab_selecter">
+        <input id="selectByEmp" class="dropup" style="float: left; width: 200px;"/>
+        <input id="selectByLType" class="dropup" style="float: left; width: 200px;"/>
+        <input id="selectByBNo"/>
+      </div>
     </div>
     <div class="main_viewer" id="edu_view" style="background-color: brown;display: none;"></div>
     <div class="main_viewer" id="exit_view" style="background-color:cadetblue;display: none;"></div>
@@ -207,6 +212,21 @@
   </div>
 </body>
 <script>
+  $(document).ready(function(){
+    $("#selectByEmp").kendoDropDownList({
+                        dataTextField: "EEName",
+                        dataValueField: "EENo",
+                        dataSource: {
+                            transport: {
+                                read: {
+                                    dataType: "jsonp",
+                                    url: "/getEElist",
+                                    method: "post",
+                                }
+                            }
+                        }
+                    })
+  });
   !function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = 'https://weatherwidget.io/js/widget.min.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'weatherwidget-io-js');
   function startTime() {
     var today = new Date();
@@ -309,7 +329,7 @@
                 },
                 pageSize: 20,
             },
-          height:600,
+          height:700,
           columns:[
                   {field:"mst",title:"護理站",width:"10%"},
                   {field:"BNo",title:"床號",width:"20%"},

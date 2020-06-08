@@ -21,6 +21,27 @@ router.get('/', function(req, res, next) {
 });
 
 
+router.post('/getEElist',function(req,res,next){
+  var sql = "select EEName,EENo from eecode;"
+  console.log("i am SBL2");
+  if(connStatus == 0){
+    conn.connect(function(err){
+      if(err) throw err;
+      console.log('connect success!');
+      connStatus ++;
+      console.log(connStatus);
+      });
+  }
+  conn.query(sql,function(err,rows){
+    console.log(rows);
+    if(err){
+      console.log(err);
+    }else{
+      res.jsonp(rows);
+      //res.end();
+    }
+  })
+});
 
 router.post('/lab',function(req,res,next){
 var nstNo = "12";
