@@ -20,7 +20,7 @@
       <li class="li_horizental">
         <div id="station_info">
           <ul calss="ul_horizental">
-            <li class="li_horizental" id="NSTno">AA12</li>
+            <li class="li_horizental" id="NSTno" value="12">AA12</li>
 
             <li id="tel" class="li_horizental">
               <ul style="list-style: none;">
@@ -283,28 +283,16 @@
   }
   var dViewCk;
   var gridCount = 0;
-  $("#duty").click(function () {
-    $("#lab_view").hide();
-    $("#exit_view").hide();
-    $("#duty_view").show();
-    $("#edu_view").hide();
-    $("#p_list").hide();
-    console.log(dViewCk + "close");
-
-  })
-  $("#lab").click(function () {
-    $("#lab_view").show();
-    $("#exit_view").hide();
-    $("#duty_view").hide();
-    $("#edu_view").hide();
-    $("#p_list").hide();
-    //console.log(dViewCk + "close");
+  function labGrid(eeno,ltype,bno){
     if (gridCount != 0) {
             $("#lab_grid").data('kendoGrid').destroy();
         }
         gridCount++;
         var params = {
                 "nstNo" : $("#NSTno").val(),
+                "MN" : eeno,
+                "CKSort" : ltype,
+                "BNo" : bno
                
         };
         $("#lab_grid").kendoGrid({
@@ -331,7 +319,7 @@
             },
           height:820,
           columns:[
-                  {field:"mst",title:"護理站",width:"10%"},
+                  {field:"nst",title:"護理站",width:"10%"},
                   {field:"BNo",title:"床號",width:"20%"},
                   {field:"CkCon",title:"檢驗",width:"40%"},
                   {field:"ckdate",title:"日期",width:"30%"},
@@ -344,7 +332,33 @@
                             numeric: false
                         },
   });
+  }
+  $("#duty").click(function () {
+    $("#lab_view").hide();
+    $("#exit_view").hide();
+    $("#duty_view").show();
+    $("#edu_view").hide();
+    $("#p_list").hide();
+    console.log(dViewCk + "close");
+
   })
+  $("#lab").click(function () {
+    $("#lab_view").show();
+    $("#exit_view").hide();
+    $("#duty_view").hide();
+    $("#edu_view").hide();
+    $("#p_list").hide();
+    labGrid();
+    //console.log(dViewCk + "close");
+    
+  })
+  $("#lab_selecter").change(function(){
+    console.log("work123123S");
+    var eeNo = $("#selectByEmp").val();
+    var lt = $("#selectByLType").val();
+    var bno = $("#selectByBNo").val();
+    labGrid(eeNo,lt,bno);
+  });
   $("#edu").click(function () {
 
     $("#lab_view").hide();
