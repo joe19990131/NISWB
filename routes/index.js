@@ -18,6 +18,7 @@ var conn = mysql.createConnection({
 router.get('/', function(req, res, next) {
   res.location('/')
   res.render('index', { title: 'Express' });
+  
 });
 
 
@@ -44,7 +45,9 @@ router.post('/getEElist',function(req,res,next){
 });
 
 router.post('/lab',function(req,res,next){
-var nstNo = "12";
+var nstNo = req.body['nstNo'];
+var MN = req.body['MN'];
+console.log(MN);
   var sql = "select nst, BNo, CkCon,ckdate "+
   "from checkrecord join bhdata using(pNo) join bedrecord using(BNo)"+
   " where nst = '"+nstNo+"' order by Bno;"
