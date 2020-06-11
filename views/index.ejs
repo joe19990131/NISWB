@@ -136,12 +136,11 @@
       </table>
     </div>
     <div class="main_viewer" id="duty_view" style="background-color: blue;display: none;"></div>
-    <div class="main_viewer" id="lab_view" style="background-color: blueviolet;display: none;">
+    <div class="main_viewer" id="lab_view" style="background-color: #e6e6e6;display: none;">
       <div id="lab_grid"></div>
       <div id="lab_selecter" style="float: right;">
         <input id="selectByEmp" class="dropup" style="float: left; width: 200px; margin: 5px;"/>
-        <input id="selectByLType" class="dropup" style="float: left; width: 200px;"/>
-        <input id="selectByBNo"/>
+        <input id="selectByLType" class="dropup" style="float: left; width: 200px; margin: 5px;"/>
       </div>
     </div>
     <div class="main_viewer" id="edu_view" style="background-color: brown;display: none;"></div>
@@ -214,6 +213,7 @@
 <script>
   $(document).ready(function(){
     $("#selectByEmp").kendoDropDownList({
+                        optionLabel: "選擇護理師",
                         dataTextField: "EEName",
                         dataValueField: "EENo",
                         dataSource: {
@@ -221,6 +221,21 @@
                                 read: {
                                     dataType: "jsonp",
                                     url: "/getEElist",
+                                    method: "post",
+                                    data: {"nstNo" : $("#NSTno").val()}
+                                }
+                            }
+                        }
+                    });
+    $("#selectByLType").kendoDropDownList({
+                        optionLabel: "選擇檢查類別",
+                        dataTextField: "CKCon",
+                        dataValueField: "CKSort",
+                        dataSource: {
+                            transport: {
+                                read: {
+                                    dataType: "jsonp",
+                                    url: "/getCKlist",
                                     method: "post",
                                 }
                             }
@@ -283,7 +298,7 @@
   }
   var dViewCk;
   var gridCount = 0;
-  function labGrid(eeno,ltype,bno){
+  function labGrid(eeno,ltype){
     if (gridCount != 0) {
             $("#lab_grid").data('kendoGrid').destroy();
         }
@@ -292,7 +307,7 @@
                 "nstNo" : $("#NSTno").val(),
                 "MN" : eeno,
                 "CKSort" : ltype,
-                "BNo" : bno
+                
                
         };
         $("#lab_grid").kendoGrid({
@@ -348,7 +363,9 @@
     $("#duty_view").hide();
     $("#edu_view").hide();
     $("#p_list").hide();
-    labGrid();
+    var eeNo = $("#selectByEmp").val();
+    var lt = $("#selectByLType").val();
+    labGrid(eeNo,lt);
     //console.log(dViewCk + "close");
     
   })
@@ -356,8 +373,7 @@
     console.log("work123123S");
     var eeNo = $("#selectByEmp").val();
     var lt = $("#selectByLType").val();
-    var bno = $("#selectByBNo").val();
-    labGrid(eeNo,lt,bno);
+    labGrid(eeNo,lt);
   });
   $("#edu").click(function () {
 
