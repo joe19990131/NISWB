@@ -332,7 +332,7 @@
                 schema: {
                     model: {
                         fields: {
-                          nst: { type: "string" },  
+                            
                           BNo: { type: "string" },
                           CkCon: { type: "string" },
                           ckdate: { type: "string" }
@@ -343,7 +343,7 @@
             },
           height:820,
           columns:[
-                  {field:"nst",title:"護理站",width:"10%"},
+                  
                   {field:"BNo",title:"床號",width:"20%"},
                   {field:"CkCon",title:"檢驗",width:"40%"},
                   {field:"ckdate",title:"日期",width:"30%"},
@@ -363,6 +363,8 @@
     $("#duty_view").show();
     $("#edu_view").hide();
     $("#p_list").hide();
+    $(".botton_btn").hide();
+
     console.log(dViewCk + "close");
 
   })
@@ -386,6 +388,7 @@
     labGrid(eeNo,lt);
   });
   $("#edu").click(function () {
+    $(".botton_btn").hide();
 
     $("#lab_view").hide();
     $("#exit_view").hide();
@@ -398,6 +401,7 @@
   })
   $("#exit").click(function () {
 
+    $(".botton_btn").hide();
 
     $("#lab_view").hide();
     $("#exit_view").show();
