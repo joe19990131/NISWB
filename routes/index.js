@@ -74,7 +74,7 @@ var nstNo = req.body['nstNo'];
 var MN = req.body['MN'];
 var lt = req.body['CKSort']
 console.log(MN);
-  var sql = "select nst, BNo, CkCon,CKSort,ckdate "+
+  var sql = "select nst, BNo, CkCon,CKSort,DATE_FORMAT(ckdate, '%Y / %m / %d') as ckdate "+
   "from checkrecord join bhdata using(pNo) join bedrecord using(BNo)"+
   " where "+
   "(nst = '"+nstNo+"') "+
