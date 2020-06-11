@@ -23,7 +23,8 @@ router.get('/', function(req, res, next) {
 
 
 router.post('/getEElist',function(req,res,next){
-  var sql = "select EEName,EENo from eecode;"
+  var nstNo = req.body['nstNo'];
+  var sql = "select EEName,EENo,DeptCode from eecode WHERE DeptCode = concat('A','"+nstNo+"','0');";
   console.log("i am SBL2");
   if(connStatus == 0){
     conn.connect(function(err){
@@ -44,13 +45,42 @@ router.post('/getEElist',function(req,res,next){
   })
 });
 
+router.post('/getCKlist',function(req,res,next){
+  var sql = "SELECT distinct CKSort,CKCon from checkrecord;";
+  console.log("i am SBL2");
+  /*if(connStatus == 0){
+    conn.connect(function(err){
+      if(err) throw err;
+      console.log('connect success!');
+      connStatus ++;
+      console.log(connStatus);
+      });
+  }*/
+  conn.query(sql,function(err,rows){
+    console.log(rows);
+    if(err){
+      console.log(err);
+    }else{
+      res.jsonp(rows);
+      //res.end();
+    }
+  })
+});
+
+
+
 router.post('/lab',function(req,res,next){
 var nstNo = req.body['nstNo'];
 var MN = req.body['MN'];
+var lt = req.body['CKSort']
 console.log(MN);
-  var sql = "select nst, BNo, CkCon,ckdate "+
+  var sql = "select nst, BNo, CkCon,CKSort,ckdate "+
   "from checkrecord join bhdata using(pNo) join bedrecord using(BNo)"+
-  " where nst = '"+nstNo+"' order by Bno;"
+  " where "+
+  "(nst = '"+nstNo+"') "+
+  "and (mn = '"+MN+"' or '' = '"+MN+"')"+
+  "and (cksort = '"+lt+"' or '' = '"+lt+"') "+
+  "order by Bno;"
             
   //console.log(req);
   console.log("i am SBL");
@@ -64,7 +94,8 @@ console.log(MN);
       });
   }
   conn.query(sql,function(err,rows){
-    console.log(rows);
+    //console.log(rows);
+    console.log(req);
     if(err){
       console.log(err);
     }else{
