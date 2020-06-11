@@ -148,13 +148,15 @@
     <div class="main_viewer" id="exit_view" style="background-color:cadetblue;display: none;"></div>
 
     <div id="main_list">
+      <div class="side_btn" id="backto_plist"><img class="side_btn_img" src="stylesheets/images/patient.png" width="35px"
+        height="35px"></div>
       <div class="side_btn" id="duty"><img class="side_btn_img" src="stylesheets/images/calendar.png" width="35px"
           height="35px"></div>
       <div class="side_btn" id="lab"><img class="side_btn_img" src="stylesheets/images/research.png" width="35px"
           height="35px"></div>
       <div class="side_btn" id="edu"><img class="side_btn_img" src="stylesheets/images/teaching.png" width="35px"
           height="35px"></div>
-      <div class="side_btn" id="exit"><img class="side_btn_img" src="stylesheets/images/logout.png" width="35px"
+      <div class="side_btn" id="exit"><img class="side_btn_img" src="stylesheets/images/escape.png" width="35px"
           height="35px"></div>
     </div>
   </div>
@@ -368,14 +370,14 @@
     console.log(dViewCk + "close");
 
   })
-  $("#exit").click(function () {
+  $("#backto_plist").click(function () {
 
 
 $("#lab_view").hide();
-$("#exit_view").show();
+$("#exit_view").hide();
 $("#duty_view").hide();
 $("#edu_view").hide();
-$("#p_list").hide();
+$("#p_list").show();
 
 console.log(dViewCk + "close");
 
