@@ -48,14 +48,6 @@ router.post('/getEElist',function(req,res,next){
 router.post('/getCKlist',function(req,res,next){
   var sql = "SELECT distinct CKSort,CKCon from checkrecord;";
   console.log("i am SBL2");
-  /*if(connStatus == 0){
-    conn.connect(function(err){
-      if(err) throw err;
-      console.log('connect success!');
-      connStatus ++;
-      console.log(connStatus);
-      });
-  }*/
   conn.query(sql,function(err,rows){
     console.log(rows);
     if(err){
