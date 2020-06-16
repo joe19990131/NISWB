@@ -63,7 +63,7 @@ router.post('/getBedlist',function(req,res,next){
   var sql = "SELECT BNo FROM bedrecord where nst = 12;";
   console.log("i am SBL2");
   conn.query(sql,function(err,rows){
-    console.log(rows);
+    //sconsole.log(rows);
     if(err){
       console.log(err);
     }else{

@@ -72,22 +72,63 @@
           <td class="bednumber" id="0">
             <div class="beddiv">
               <div class="bedtitle">
-                <div class="bid" id="id-0">1201-1</div>
+                <div class="bid" id="id-0"></div>
               </div>
               <div class="bedCont">
-                <div class="sex"></div>
+                <div class="sex"><img id="img-0"></div>
                 <div class="bed_info">
                   <div class="bed_status"></div>
                   <div class="call_info"></div>
                 </div>
                 <div style="clear: both;"></div>
               </div>
-              
             </div>
           </td>
-          <td class="bednumber" id="1"><div class="beddiv">28087767trsbhwh</div></td>
-          <td class="bednumber" id="2"><div class="beddiv">3</div></td>
-          <td class="bednumber" id="3">4</td>
+          <td class="bednumber" id="1">
+            <div class="beddiv">
+              <div class="bedtitle">
+                <div class="bid" id="id-1"></div>
+              </div>
+              <div class="bedCont">
+                <div class="sex"><img id="img-0"></div>
+                <div class="bed_info">
+                  <div class="bed_status"></div>
+                  <div class="call_info"></div>
+                </div>
+                <div style="clear: both;"></div>
+              </div>
+            </div>
+          </td>
+          <td class="bednumber" id="2">
+            <div class="beddiv">
+              <div class="bedtitle">
+                <div class="bid" id="id-2"></div>
+              </div>
+              <div class="bedCont">
+                <div class="sex"><img id="img-0"></div>
+                <div class="bed_info">
+                  <div class="bed_status"></div>
+                  <div class="call_info"></div>
+                </div>
+                <div style="clear: both;"></div>
+              </div>
+            </div>
+          </td>
+          <td class="bednumber" id="3">
+            <div class="beddiv">
+              <div class="bedtitle">
+                <div class="bid" id="id-3"></div>
+              </div>
+              <div class="bedCont">
+                <div class="sex"><img id="img-0"></div>
+                <div class="bed_info">
+                  <div class="bed_status"></div>
+                  <div class="call_info"></div>
+                </div>
+                <div style="clear: both;"></div>
+              </div>
+            </div>
+          </td>
           <td class="bednumber" id="4">5</td>
           <td class="bednumber" id="5">6</td>
           <td class="bednumber" id="6">7</td>
@@ -229,6 +270,7 @@
 </body>
 <script>
   $(document).ready(function(){
+    //serve eeList
     $("#selectByEmp").kendoDropDownList({
                         optionLabel: "選擇護理師",
                         dataTextField: "EEName",
@@ -244,6 +286,7 @@
                             }
                         }
                     });
+    //serve lablist
     $("#selectByLType").kendoDropDownList({
                         optionLabel: "選擇檢查類別",
                         dataTextField: "CKCon",
@@ -258,8 +301,8 @@
                             }
                         }
                     })
-    //test
-    
+    //testing
+    //主畫面資料呈現
     $.ajax({
                 type: "POST",
                 url: "getBedlist",
@@ -267,7 +310,7 @@
                 dataType: "json",
             }).done(function (e) {
               for(var i = 0;i<49;i++){
-                  document.getElementById(i).innerHTML = e[i].BNo
+                  document.getElementById('id-'+i).innerHTML = e[i].BNo
                 }
                
                 
