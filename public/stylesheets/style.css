@@ -1,4 +1,4 @@
-body{
+body {
   padding: 0px;
   margin: 0px;
   margin-top: 0px;
@@ -6,43 +6,50 @@ body{
   width: 100%;
   height: 100%;
 }
+
 .ul_horizental {
-margin: 0px;
-padding: 0px;
-display: inline;
+  margin: 0px;
+  padding: 0px;
+  display: inline;
 }
-#NSTno{
+
+#NSTno {
   font-size: 48px;
   margin-left: 10px;
   margin-top: 3%;
   color: white;
 }
+
 .li_horizental {
-   display: inline;
-   margin: 0px;
-   padding: 0px;
-   float: left;
-   height: 100%;
- }
- #member {
-   margin-top: 7.6%;
- }
- .memberName {
-   font-size: 20px;
-   list-style: none;
-   margin: 2px;
-   color: black;
-   font-family: Microsoft JhengHei;
- }
+  display: inline;
+  margin: 0px;
+  padding: 0px;
+  float: left;
+  height: 100%;
+}
+
+#member {
+  margin-top: 7.6%;
+}
+
+.memberName {
+  font-size: 20px;
+  list-style: none;
+  margin: 2px;
+  color: black;
+  font-family: Microsoft JhengHei;
+}
+
 a {
   color: #00B7FF;
 }
+
 #station_info {
-  
   float: left;
-  height: 100%; 
+  height: 100%;
 }
-#weather_date{
+
+#weather_date {
   margin-left: 800px;
   width: 290px;
   height: 75px;
@@ -51,90 +58,106 @@ a {
   padding-left: 0px;
   padding-bottom: 0px;
   position: fixed;
-  
 }
- #head_bar {
-   height: 8%;
-   width: 80%;
-   margin-top: 0px;
-   background-image: url("images/nisheaderbg.png");
- }
- #wbid{
-   color: white;
- }
- #marquee{
-   width: 91%;
-    height: 5%;
-    background-color: rgb(201, 201, 201);
-    padding: 0.7%;
-    margin-left: 1%;
-    margin-right: 1%;
-    margin-top: 4PX;
-    position: relative;
-    z-index: 9999;
-    
-    
- }
- marquee{
-   text-align: initial;
-    font-size: x-large;
-    line-height: 25px;
-    
- }
- #main_container{
-   width: 100%;
-   height: 80.5%;
+
+#head_bar {
+  height: 8%;
+  width: 80%;
+  margin-top: 0px;
+  background-image: url("images/nisheaderbg.png");
+}
+
+#wbid {
+  color: white;
+}
+
+#marquee {
+  width: 91%;
+  height: 5%;
+  background-color: rgb(201, 201, 201);
+  padding: 0.7%;
+  margin-left: 1%;
+  margin-right: 1%;
+  margin-top: 4PX;
+  position: relative;
+  z-index: 9999;
+}
+
+marquee {
+  text-align: initial;
+  font-size: x-large;
+  line-height: 25px;
+}
+
+#main_container {
+  width: 100%;
+  height: 80.5%;
   margin-left: 1%;
   margin-top: 0.2%;
- }
- .beddiv{
-   width: 100%;
-   height: 100%;
-   position: static;
-   
- }
-  .bedtitle{
-    position: relative;
-    top: 0px;
-    height: 25px;
-    margin-top: 0px;
-    background-color: rgb(197, 197, 197);
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 0px;
-    border-bottom-left-radius: 0px;
-  }
-  .bid{
-    margin-left: 5px;
-  }
-  .bedCont{
-    position: relative;
-    height: 100px;
-    background-color:white;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    border-bottom-right-radius: 10px;
-    border-bottom-left-radius: 10px;
-  }
-.sex{
-  border:  5px solid #666;
-	width: 30%;
+}
+
+.beddiv {
+  width: 100%;
+  height: 100%;
+  position: static;
+}
+
+.bedtitle {
+  position: relative;
+  top: 0px;
+  height: 25px;
+  margin-top: 0px;
+  background-color: rgb(197, 197, 197);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+
+.bid {
+  margin-left: 5px;
+}
+
+.focus {
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+  background-color: azure;
+  float: right;
+  margin-right: 10px;
+  margin-top: 3px;
+}
+
+.bedCont {
+  position: relative;
+  height: 100px;
+  background-color: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.sex {
+  border: 5px solid #666;
+  width: 30%;
   height: 93%;
   border-radius: 10px;
   margin-left: 5px;
   float: left;
   position: relative;
 }
-.bed_info{
+
+.bed_info {
   float: left;
   width: 64%;
   height: 95%;
   margin-left: 1%;
   margin-right: 1%;
   position: relative;
-  
 }
-.bed_status{
+
+.bed_status {
   background-color: rgb(170, 170, 170);
   position: absolute;
   height: 30%;
@@ -144,7 +167,8 @@ a {
   border-radius: 5px;
   float: left;
 }
-.call_info{
+
+.call_info {
   background-color: rgb(88, 88, 88);
   position: absolute;
   height: 65%;
@@ -154,54 +178,63 @@ a {
   border-radius: 5px;
   float: left;
 }
- .main_viewer{
-   width: 94.5%;
-   height: 100%;
-   background-color: gray;
-   float: left;
- }
- #main_list {
+
+.main_viewer {
+  width: 94.5%;
+  height: 100%;
+  background-color: gray;
+  float: left;
+}
+
+#main_list {
   width: 4%;
-position: fixed;
-bottom: 50px;
-right: 0px;
+  position: fixed;
+  bottom: 50px;
+  right: 0px;
   float: right;
- }
- .side_btn{
+}
+
+.side_btn {
   width: 60px;
   height: 60px;
   border-radius: 60px;
   background-color: lightgray;
-  float: initial; 
-margin-bottom: 10px;}
- 
-.side_btn_img{
+  float: initial;
+  margin-bottom: 10px;
+}
+
+.side_btn_img {
   margin-top: 13px;
   margin-left: 13px;
 }
- #botton_nav{
-   width: 100%;
-   height: 5%;
-   background-color: rgb(160, 160, 160);
-   position: absolute;
-   bottom: 0px;
-   right: 0px;
- }
+
+#botton_nav {
+  width: 100%;
+  height: 5%;
+  background-color: rgb(160, 160, 160);
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+}
+
 #time {
- float: right;
- position: fixed;
- right: 1%;
- top: 1.4%;
+  float: right;
+  position: fixed;
+  right: 1%;
+  top: 1.4%;
 }
+
 #clock {
-  font-size:40px;
+  font-size: 40px;
 }
+
 #date {
   float: right;
   font-size: 23px;
   font-style: oblique;
   margin-right: 1.2%;
 }
+
 #week {
   float: right;
   font-size: 20px;
@@ -209,14 +242,16 @@ margin-bottom: 10px;}
   top: 10%;
   right: 1.1%;
 }
-#tel{
+
+#tel {
   margin-top: 3.3%;
   font-size: 22px;
   font-family: Microsoft JhengHei;
   list-style: none;
   color: white;
 }
-.botton_btn{
+
+.botton_btn {
   border-radius: 50px;
   background-color: lightgrey;
   width: 100px;
@@ -226,28 +261,31 @@ margin-bottom: 10px;}
   margin-right: 10px;
   float: left;
 }
-.btn_count{
+
+.btn_count {
   border-radius: 50%;
   background-color: white;
   width: 24px;
   height: 24px;
   margin: 3px;
-    float: left;
+  float: left;
 }
-.botton_btn_text{
+
+.botton_btn_text {
   float: left;
   line-height: 30px;
   font-size: 18px;
   margin-left: 8px;
 }
+
 table {
   table-layout: fixed;
   border: 5px solid black;
   border-collapse: collapse;
-  
 }
+
 td {
-  width:100;
+  width: 100;
   border: rgb(122, 122, 122);
   border-style: solid;
   border-width: 5px;
