@@ -59,6 +59,19 @@ router.post('/getCKlist',function(req,res,next){
   })
 });
 
+router.post('/getBedlist',function(req,res,next){
+  var sql = "SELECT BNo FROM bedrecord where nst = 12;";
+  console.log("i am SBL2");
+  conn.query(sql,function(err,rows){
+    console.log(rows);
+    if(err){
+      console.log(err);
+    }else{
+      res.json(rows);
+      //res.end();
+    }
+  })
+});
 
 
 router.post('/lab',function(req,res,next){

@@ -259,9 +259,20 @@
                         }
                     })
     //test
-    for(var i = 0;i<49;i++){
-      document.getElementById('id-'+i).innerHTML = i+'-test'
-    }
+    
+    $.ajax({
+                type: "POST",
+                url: "getBedlist",
+                data: { "nstNo": $("#NSTno").val() },
+                dataType: "json",
+            }).done(function (e) {
+              for(var i = 0;i<49;i++){
+                  document.getElementById(i).innerHTML = e[i].BNo
+                }
+               
+                
+
+            })
   });
   !function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = 'https://weatherwidget.io/js/widget.min.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'weatherwidget-io-js');
   function startTime() {
@@ -390,7 +401,6 @@
     var eeNo = $("#selectByEmp").val();
     var lt = $("#selectByLType").val();
     labGrid(eeNo,lt);
-    //console.log(dViewCk + "close");
     
   })
   $("#lab_selecter").change(function(){
