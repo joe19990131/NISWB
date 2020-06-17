@@ -99,7 +99,7 @@ marquee {
 .beddiv {
   width: 100%;
   height: 100%;
-  position: static;
+  position: relative;
 }
 
 .bedtitle {
@@ -116,6 +116,7 @@ marquee {
 
 .bid {
   margin-left: 5px;
+  float: left;
 }
 
 .focus {
@@ -124,13 +125,16 @@ marquee {
   border-radius: 20px;
   background-color: azure;
   float: right;
-  margin-right: 10px;
-  margin-top: 3px;
+  position: absolute;
+  margin-top: 2%;
+  right: 2%;
+  bottom: 8%;
+  display: none;
 }
 
 .bedCont {
   position: relative;
-  height: 100px;
+  height: 95px;
   background-color: white;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -139,7 +143,7 @@ marquee {
 }
 
 .sex {
-  border: 5px solid #666;
+  border: 1px solid #666;
   width: 30%;
   height: 93%;
   border-radius: 10px;
@@ -166,6 +170,7 @@ marquee {
   top: 1%;
   border-radius: 5px;
   float: left;
+  display: none;
 }
 
 .call_info {
@@ -177,12 +182,12 @@ marquee {
   bottom: 1%;
   border-radius: 5px;
   float: left;
+  display: none;
 }
 
 .main_viewer {
   width: 94.5%;
   height: 100%;
-  background-color: gray;
   float: left;
 }
 
@@ -210,7 +215,7 @@ marquee {
 
 #botton_nav {
   width: 100%;
-  height: 5%;
+  height: 4.5%;
   background-color: rgb(160, 160, 160);
   position: absolute;
   bottom: 0px;
@@ -256,7 +261,7 @@ marquee {
   background-color: lightgrey;
   width: 100px;
   height: 30px;
-  margin-top: 12px;
+  margin-top: 7px;
   margin-left: 25px;
   margin-right: 10px;
   float: left;
@@ -280,13 +285,14 @@ marquee {
 
 table {
   table-layout: fixed;
-  border: 5px solid black;
+  border: 5px solid rgb(167, 167, 167);
   border-collapse: collapse;
 }
 
 td {
   width: 100;
-  border: rgb(122, 122, 122);
+  border: rgb(167, 167, 167);
   border-style: solid;
   border-width: 5px;
+  border-radius: 500px;
 }
