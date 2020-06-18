@@ -13,6 +13,13 @@ var conn = mysql.createConnection({
   password : '123456',
   database : 'nis'
 });
+/*var conn = mysql.createConnection({
+  host : 'JS108-36',
+  prot : '3306',
+  user: 'niswb',
+  password : '123456',
+  database : 'nis'
+});*/
 //sql setting end
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -44,7 +51,7 @@ router.post('/getEElist',function(req,res,next){
     }
   })
 });
-
+//document.ready please copy below code
 router.post('/getCKlist',function(req,res,next){
   var sql = "SELECT distinct CKSort,CKCon from checkrecord;";
   console.log("i am SBL2");
@@ -60,7 +67,7 @@ router.post('/getCKlist',function(req,res,next){
 });
 
 router.post('/getBedlist',function(req,res,next){
-  var sql = "SELECT BNo FROM bedrecord where nst = 12;";
+  var sql = "SELECT BNo,nstname FROM bedrecord where nst = 12;";
   console.log("i am SBL2");
   conn.query(sql,function(err,rows){
     //sconsole.log(rows);
@@ -68,6 +75,7 @@ router.post('/getBedlist',function(req,res,next){
       console.log(err);
     }else{
       res.json(rows);
+      console.log(rows);
       //res.end();
     }
   })
