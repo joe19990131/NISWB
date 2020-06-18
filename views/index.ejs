@@ -984,7 +984,8 @@
       dataType: "json",
     }).done(function (e) {
       for (var i = 0; i < 49; i++) {
-        document.getElementById('id-' + i).innerHTML = e[i].BNo
+        document.getElementById('id-' + i).innerHTML = e[i].BNo;
+        console.log(e[i])
       }
 
 

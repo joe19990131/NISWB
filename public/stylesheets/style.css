@@ -117,6 +117,7 @@ marquee {
 .bid {
   margin-left: 5px;
   float: left;
+  font-size: 14pt;
 }
 
 .focus {

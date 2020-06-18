@@ -17,7 +17,7 @@ var conn = mysql.createConnection({
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.location('/')
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'NIS WhiteBoard' });
   
 });
 
