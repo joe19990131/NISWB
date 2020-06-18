@@ -44,7 +44,7 @@ router.post('/getEElist',function(req,res,next){
     }
   })
 });
-
+//document.ready please copy below code
 router.post('/getCKlist',function(req,res,next){
   var sql = "SELECT distinct CKSort,CKCon from checkrecord;";
   console.log("i am SBL2");
