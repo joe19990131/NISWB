@@ -11,6 +11,7 @@
   <script src="/jquery/jquery-2.1.4.min.js"></script>
   <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
   <script src="/kendo/js/kendo.all.min.js"></script>
+  
 </head>
 
 <body onload="startTime()">
@@ -77,7 +78,7 @@
                 <div class="focus"></div>
               </div>
               <div class="bedCont">
-                <div class="sex"><img id="img-0"></div>
+                <div class="sex"><img id="img-0" src="stylesheets/images/walk.png" style="width:100%;height:100%;" ></div>
                 <div class="bed_info">
                   <div class="bed_status"></div>
                   <div class="call_info"></div>
@@ -93,7 +94,7 @@
                 <div class="focus"></div>
               </div>
               <div class="bedCont">
-                <div class="sex"><img id="img-0"></div>
+                <div class="sex"><img id="img-1"></div>
                 <div class="bed_info">
                   <div class="bed_status"></div>
                   <div class="call_info"></div>
@@ -109,7 +110,7 @@
                 <div class="focus"></div>
               </div>
               <div class="bedCont">
-                <div class="sex"><img id="img-0"></div>
+                <div class="sex"><img id="img-2"></div>
                 <div class="bed_info">
                   <div class="bed_status"></div>
                   <div class="call_info"></div>
@@ -125,7 +126,7 @@
                 <div class="focus"></div>
               </div>
               <div class="bedCont">
-                <div class="sex"><img id="img-0"></div>
+                <div class="sex"><img id="img-3"></div>
                 <div class="bed_info">
                   <div class="bed_status"></div>
                   <div class="call_info"></div>
@@ -173,7 +174,7 @@
           <div class="focus"></div>
         </div>
         <div class="bedCont">
-          <div class="sex"><img id="img-6"></div>
+          <div class="sex"><img id="img-6" src="" style="width:100%;height:100%;"></div>
           <div class="bed_info">
             <div class="bed_status"></div>
             <div class="call_info"></div>
@@ -979,12 +980,15 @@
     //主畫面資料呈現
     $.ajax({
       type: "POST",
-      url: "getBedlist",
+      url: "/getBedlist",
       data: { "nstNo": $("#NSTno").val() },
       dataType: "json",
     }).done(function (e) {
+      console.log(e);
       for (var i = 0; i < 49; i++) {
-        document.getElementById('id-' + i).innerHTML = e[i].BNo
+        document.getElementById('id-' + i).innerHTML = e[i].BNo;
+        
+        document.getElementById("img-6").src="stylesheets/images/bed.png";
       }
 
 
