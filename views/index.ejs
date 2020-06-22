@@ -11,7 +11,7 @@
   <script src="/jquery/jquery-2.1.4.min.js"></script>
   <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
   <script src="/kendo/js/kendo.all.min.js"></script>
-  
+
 </head>
 
 <body onload="startTime()">
@@ -78,7 +78,8 @@
                 <div class="focus"></div>
               </div>
               <div class="bedCont">
-                <div class="sex"><img id="img-0" src="stylesheets/images/walk.png" style="width:100%;height:100%;" ></div>
+                <div class="sex"><img id="img-0" src="stylesheets/images/walk.png" style="width:100%;height:100%;">
+                </div>
                 <div class="bed_info">
                   <div class="bed_status"></div>
                   <div class="call_info"></div>
@@ -249,34 +250,38 @@
           </div>
         </div>
       </td>
-      <td class="bednumber" id="11"><div class="beddiv">
-        <div class="bedtitle">
-          <div class="bid" id="id-11"></div>
-          <div class="focus"></div>
-        </div>
-        <div class="bedCont">
-          <div class="sex"><img id="img-11"></div>
-          <div class="bed_info">
-            <div class="bed_status"></div>
-            <div class="call_info"></div>
+      <td class="bednumber" id="11">
+        <div class="beddiv">
+          <div class="bedtitle">
+            <div class="bid" id="id-11"></div>
+            <div class="focus"></div>
           </div>
-          <div style="clear: both;"></div>
-        </div>
-      </div></td>
-      <td class="bednumber" id="12"><div class="beddiv">
-        <div class="bedtitle">
-          <div class="bid" id="id-12"></div>
-          <div class="focus"></div>
-        </div>
-        <div class="bedCont">
-          <div class="sex"><img id="img-12"></div>
-          <div class="bed_info">
-            <div class="bed_status"></div>
-            <div class="call_info"></div>
+          <div class="bedCont">
+            <div class="sex"><img id="img-11"></div>
+            <div class="bed_info">
+              <div class="bed_status"></div>
+              <div class="call_info"></div>
+            </div>
+            <div style="clear: both;"></div>
           </div>
-          <div style="clear: both;"></div>
         </div>
-      </div></td>
+      </td>
+      <td class="bednumber" id="12">
+        <div class="beddiv">
+          <div class="bedtitle">
+            <div class="bid" id="id-12"></div>
+            <div class="focus"></div>
+          </div>
+          <div class="bedCont">
+            <div class="sex"><img id="img-12"></div>
+            <div class="bed_info">
+              <div class="bed_status"></div>
+              <div class="call_info"></div>
+            </div>
+            <div style="clear: both;"></div>
+          </div>
+        </div>
+      </td>
       <td class="bednumber" id="13">
         <div class="beddiv">
           <div class="bedtitle">
@@ -327,20 +332,22 @@
           </div>
         </div>
       </td>
-      <td class="bednumber" id="16"><div class="beddiv">
-        <div class="bedtitle">
-          <div class="bid" id="id-16"></div>
-          <div class="focus"></div>
-        </div>
-        <div class="bedCont">
-          <div class="sex"><img id="img-16"></div>
-          <div class="bed_info">
-            <div class="bed_status"></div>
-            <div class="call_info"></div>
+      <td class="bednumber" id="16">
+        <div class="beddiv">
+          <div class="bedtitle">
+            <div class="bid" id="id-16"></div>
+            <div class="focus"></div>
           </div>
-          <div style="clear: both;"></div>
+          <div class="bedCont">
+            <div class="sex"><img id="img-16"></div>
+            <div class="bed_info">
+              <div class="bed_status"></div>
+              <div class="call_info"></div>
+            </div>
+            <div style="clear: both;"></div>
+          </div>
         </div>
-      </div></td>
+      </td>
       <td class="bednumber" id="17">
         <div class="beddiv">
           <div class="bedtitle">
@@ -503,20 +510,22 @@
           </div>
         </div>
       </td>
-      <td class="bednumber" id="27"><div class="beddiv">
-        <div class="bedtitle">
-          <div class="bid" id="id-27"></div>
-          <div class="focus"></div>
-        </div>
-        <div class="bedCont">
-          <div class="sex"><img id="img-27"></div>
-          <div class="bed_info">
-            <div class="bed_status"></div>
-            <div class="call_info"></div>
+      <td class="bednumber" id="27">
+        <div class="beddiv">
+          <div class="bedtitle">
+            <div class="bid" id="id-27"></div>
+            <div class="focus"></div>
           </div>
-          <div style="clear: both;"></div>
+          <div class="bedCont">
+            <div class="sex"><img id="img-27"></div>
+            <div class="bed_info">
+              <div class="bed_status"></div>
+              <div class="call_info"></div>
+            </div>
+            <div style="clear: both;"></div>
+          </div>
         </div>
-      </div></td>
+      </td>
     </tr>
     <tr style="height:  10%;">
       <td class="bednumber" id="28">
@@ -873,7 +882,11 @@
     </div>
   </div>
   <div class="main_viewer" id="edu_view" style="background-color: brown;display: none;">
-    <object data="http://new.eck.org.tw/wp-content/uploads/2020/02/BN000E001.pdf" type="application/pdf" style="width: 100%; height: 100%;"></object>
+    <!-- <object data="http://new.eck.org.tw/wp-content/uploads/2020/02/BN000E001.pdf" type="application/pdf" style="width: 100%; height: 100%;"></object> -->
+    <div id="edu_grid"></div>
+    <div id="lab_selecter" style="float: right;">
+      <input id="selectbyFName" class="dropup" style="float: left; width: 200px; margin: 5px;" />
+    </div>
   </div>
   <div class="main_viewer" id="exit_view" style="background-color:cadetblue;display: none;"></div>
 
@@ -976,6 +989,21 @@
         }
       }
     })
+    //serve edulist
+    $("#selectbyFName").kendoDropDownList({
+      optionLabel: "選擇衛教文件名稱",
+      dataTextField: "FName",
+      dataValueField: "FNo",
+      dataSource: {
+        transport: {
+          read: {
+            dataType: "jsonp",
+            url: "/getFNamelist",
+            method: "post",
+          }
+        }
+      }
+    })
     //testing
     //主畫面資料呈現
     $.ajax({
@@ -987,8 +1015,8 @@
       console.log(e);
       for (var i = 0; i < 49; i++) {
         document.getElementById('id-' + i).innerHTML = e[i].BNo;
-        
-        document.getElementById("img-6").src="stylesheets/images/bed.png";
+
+        document.getElementById("img-6").src = "stylesheets/images/bed.png";
       }
 
 

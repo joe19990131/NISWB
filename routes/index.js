@@ -66,6 +66,20 @@ router.post('/getCKlist',function(req,res,next){
   })
 });
 
+router.post('/getFNamelist',function(req,res,next){
+  var sql = "SELECT FName,FNo from mdeddata;;";
+  console.log("i am SBL2");
+  conn.query(sql,function(err,rows){
+    console.log(rows);
+    if(err){
+      console.log(err);
+    }else{
+      res.jsonp(rows);
+      //res.end();
+    }
+  })
+});
+
 router.post('/getBedlist',function(req,res,next){
   var sql = "SELECT BNo,nstname FROM bedrecord where nst = 12;";
   console.log("i am SBL2");
