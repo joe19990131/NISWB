@@ -881,12 +881,15 @@
       <input id="selectByLType" class="dropup" style="float: left; width: 200px; margin: 5px;" />
     </div>
   </div>
-  <div class="main_viewer" id="edu_view" style="background-color: brown;display: none;">
+  <div class="main_viewer" id="edu_view" style="background-color: rgb(252, 249, 249);display: none;">
+    <div style="background-color: rgb(247, 253, 253);height: 40%;">衛教</div>
     <!-- <object data="http://new.eck.org.tw/wp-content/uploads/2020/02/BN000E001.pdf" type="application/pdf" style="width: 100%; height: 100%;"></object> -->
-    <div id="edu_grid"></div>
-    <div id="lab_selecter" style="float: right;">
-      <input id="selectbyFName" class="dropup" style="float: left; width: 200px; margin: 5px;" />
+    <div id="edu_grid">
+      <!-- <div style="background-color: #e6e6e6;height: 300px;">hello</div> -->
     </div>
+    <!-- <div id="edu_selecter" style="float: right;">
+        <input id="selectbyFName" class="dropup" style="float: right;width: 250px; margin: 5px; top: 800px;" />
+      </div> -->
   </div>
   <div class="main_viewer" id="exit_view" style="background-color:cadetblue;display: none;"></div>
 
@@ -1004,6 +1007,9 @@
         }
       }
     })
+
+  
+
     //testing
     //主畫面資料呈現
     $.ajax({
@@ -1129,6 +1135,9 @@
       },
     });
   }
+
+
+
   $("#duty").click(function () {
     $("#lab_view").hide();
     $("#exit_view").hide();
@@ -1166,7 +1175,39 @@
     $("#duty_view").hide();
     $("#edu_view").show();
     $("#p_list").hide();
+    $("#edu_grid").kendoGrid({
+      dataSource: {
+        transport: {
+          read: {
+            method: "post",
+            url: "/edu",
+            dataType: "json"
+           
+          }
+        },
+        schema: {
+          model: {
+            fields: {
 
+              FName: { type: "string" }
+            }
+          }
+        },
+        pageSize: 20,
+      },
+      height: 550,
+      columns: [
+
+        { field: "FName", title: "文件名稱", width: "40%" }
+      ],
+      sortable: true,
+      scrollable: true,
+      sortable: true,
+      pageable: {
+        input: true,
+        numeric: false
+      },
+    });
     console.log(dViewCk + "close");
 
   })
