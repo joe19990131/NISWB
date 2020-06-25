@@ -1020,9 +1020,14 @@
     }).done(function (e) {
       console.log(e);
       for (var i = 0; i < 49; i++) {
+        if(e[i].Sex !=null){
         document.getElementById('id-' + i).innerHTML = e[i].BNo;
-
-        document.getElementById("img-6").src = "stylesheets/images/bed.png";
+        if(e[i].taboo_11 == 1){
+          document.getElementById("img-"+i).src = "stylesheets/images/bed.png";
+        }
+        
+        }
+        
       }
 
 
