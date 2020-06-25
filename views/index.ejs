@@ -14,7 +14,7 @@
 
 </head>
 
-<body onload="startTime()">
+<body onload="startTime();mapBed()">
 
   <div id="head_bar">
     <ul class="ul_horizental">
@@ -1012,7 +1012,11 @@
 
     //testing
     //主畫面資料呈現
-    $.ajax({
+   
+    
+  });
+   function mapBed(){
+      $.ajax({
       type: "POST",
       url: "/getBedlist",
       data: { "nstNo": $("#NSTno").val() },
@@ -1024,16 +1028,13 @@
         document.getElementById('id-' + i).innerHTML = e[i].BNo;
         if(e[i].taboo_11 == 1){
           document.getElementById("img-"+i).src = "stylesheets/images/bed.png";
-        }
-        
-        }
-        
+          } 
+        } 
       }
-
-
-
     })
-  });
+    var timeoutMB = setTimeout(mapBed, 60000);
+
+    }
   !function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = 'https://weatherwidget.io/js/widget.min.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'weatherwidget-io-js');
   function startTime() {
     var today = new Date();
