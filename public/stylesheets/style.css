@@ -100,6 +100,7 @@ marquee {
   width: 100%;
   height: 100%;
   position: relative;
+
 }
 
 .bedtitle {
@@ -144,15 +145,18 @@ marquee {
 }
 
 .sex {
-  border: 1px solid #666;
+  
   width: 30%;
   height: 93%;
-  border-radius: 10px;
+ 
   margin-left: 5px;
   float: left;
   position: relative;
 }
-
+.sex img{
+  width:100%;
+  height:100%;
+}
 .bed_info {
   float: left;
   width: 64%;
