@@ -81,7 +81,7 @@ router.post('/getFNamelist', function (req, res, next) {
 });
 
 router.post('/getBedlist', function (req, res, next) {
-  var sql = "select BNo,taboo_11,patientdata.Sex,bidx_01,bidx_02,bidx_03,bidx_04,bidx_05,bidx_06,bidx_07,bidx_08,bidx_09,bidx_10,callrequest from bedrecord left join bhdata using(BNo) left join bedidx using(pno) left join patientdata using(pno)  left join taboorecord using (pno) left join callrecording using (PNo) where bedrecord.NST = 12;";
+  var sql = "select bedrecord.BNo,taboo_11,patientdata.Sex,bidx_01,bidx_02,bidx_03,bidx_04,bidx_05,bidx_06,bidx_07,bidx_08,bidx_09,bidx_10,callrequest from bedrecord left join bhdata using(BNo) left join bedidx using(pno) left join patientdata using(pno)  left join taboorecord using (pno) left join callrecording using (PNo) where bedrecord.NST = 12;";
   console.log("i am SBL2");
   conn.query(sql, function (err, rows) {
     //sconsole.log(rows);
