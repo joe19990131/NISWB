@@ -1049,9 +1049,15 @@
         data[i][12] = e[i].bidx_10;
         data[i][13] = e[i].callrequest;
         if(e[i].Sex !=null){
-        document.getElementById('id-' + i).innerHTML = e[i].BNo;
-        if(e[i].taboo_11 == 1){
-          document.getElementById("img-"+i).src = "stylesheets/images/bed.png";
+        document.getElementById('id-' + i).innerHTML = data[i][0];
+        if(data[i][1] == 1 && data[i][2] == 1){
+          document.getElementById("img-"+i).src = "stylesheets/images/bedm.png";
+          }else if(data[i][1] == 1 && data[i][2] == 2){
+            document.getElementById("img-"+i).src = "stylesheets/images/bedw.png";
+          }else if(data[i][1] != 1 && data[i][2] == 1){
+            document.getElementById("img-"+i).src = "stylesheets/images/walkm.png";
+          }else if(data[i][1] != 1 && data[i][2] == 2){
+            document.getElementById("img-"+i).src = "stylesheets/images/walkw.png";
           }
         if(e[i].callrequest != null){
           document.getElementById("focus-"+i).style.display = "inline"

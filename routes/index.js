@@ -4,7 +4,7 @@ var mysql = require('mysql');
 var bodyParser = require('body-parser');
 var app = express();
 
-//sql qetting
+//sql Setting
 var connStatus = 0;
 var conn = mysql.createConnection({
   host: 'localhost',
