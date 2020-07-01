@@ -1066,6 +1066,7 @@
         document.getElementById('id-' + i).innerHTML = data[i][0];
         if(data[i][1] == 1 && data[i][2] == 1){
           document.getElementById("img-"+i).src = "stylesheets/images/bedm.png";
+          document.getElementById("img-"+i).style.display = "inline";
           }else if(data[i][1] == 1 && data[i][2] == 2){
             document.getElementById("img-"+i).src = "stylesheets/images/bedw.png";
           }else if(data[i][1] != 1 && data[i][2] == 1){
@@ -1077,13 +1078,13 @@
           document.getElementById("focus-"+i).style.display = "inline";
           document.getElementById("callInfo-"+i).innerHTML = data[i][14];
           document.getElementById("callInfo-"+i).style.display = "inline";
-        } 
+          } 
         if(e[i].dhdate != null && e[i].dhdate != 0){
           document.getElementById("bedStatus-"+i).style.display = "inline";
           document.getElementById("bedStatus-"+i).innerHTML = "出院";
-          
-        } 
-        } 
+        
+          } 
+        }
       }
 
     })
