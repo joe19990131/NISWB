@@ -14,7 +14,7 @@
 
 </head>
 
-<body onload="startTime();mapBed()">
+<body onload="startTime();mapBed();mapbb()">
 
   <div id="head_bar">
     <ul class="ul_horizental">
@@ -64,7 +64,7 @@
   </ul>
   </div>
   <div id="marquee">
-    <marquee direction="right" scrollamount="5" behavior="alternate">跑馬燈測試</marquee>
+    <marquee direction="right" scrollamount="5" behavior="alternate" id="marq">跑馬燈測試</marquee>
   </div>
   <div id="main_container">
     <div class="main_viewer" id="p_list">
@@ -1017,6 +1017,17 @@
   });
   var data;
   var clickCount = 0;
+
+  function mapbb(){
+    $.ajax({
+      type: "POST",
+      url: "/getbb",
+      //data: { "nstNo": $("#NSTno").val() },
+      dataType: "json",
+    }).done(function (e) {
+      document.getElementById('marq').innerHTML = "12313123123";
+    })
+  }
    function mapBed(){
     // $(".beddiv").fadeIn(3000);
       $.ajax({

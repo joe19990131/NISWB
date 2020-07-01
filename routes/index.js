@@ -94,7 +94,20 @@ router.post('/getBedlist', function (req, res, next) {
     }
   })
 });
-
+router.post('/getbb', function (req, res, next) {
+  var sql = "select * from bbinfo";
+  console.log("i am SBL2");
+  conn.query(sql, function (err, rows) {
+    //sconsole.log(rows);
+    if (err) {
+      console.log(err);
+    } else {
+      res.json(rows);
+      console.log(rows);
+      //res.end();
+    }
+  })
+});
 router.post('/edu', function (req, res, next){
   var sql = "SELECT fileURL,FName from mdeddata;"
   console.log("i am SBL2");
