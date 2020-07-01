@@ -882,14 +882,16 @@
     </div>
   </div>
   <div class="main_viewer" id="edu_view" style="background-color: rgb(252, 249, 249);display: none;">
-    <div style="background-color: rgb(247, 253, 253);height: 40%;">衛教</div>
-    <!-- <object data="http://new.eck.org.tw/wp-content/uploads/2020/02/BN000E001.pdf" type="application/pdf" style="width: 100%; height: 100%;"></object> -->
-    <div id="edu_grid">
-      <!-- <div style="background-color: #e6e6e6;height: 300px;">hello</div> -->
+    <div style="background-color: rgb(247, 253, 253);height: 95%;">
+      <object data="http://new.eck.org.tw/wp-content/uploads/2020/02/BN000E001.pdf" type="application/pdf" style="width: 100%; height: 100%;" id="edu_viewer"></object>
     </div>
-    <!-- <div id="edu_selecter" style="float: right;">
-        <input id="selectbyFName" class="dropup" style="float: right;width: 250px; margin: 5px; top: 800px;" />
-      </div> -->
+ 
+    <!--<div id="edu_grid">-->
+      <div id="edu_selecter" style="float: right;">
+        <input id="selectbyFName" class="dropup" style="float: right;width: 1805px; margin: 5px; top: 8px;" />
+      </div>
+    </div>
+    
   </div>
   <div class="main_viewer" id="exit_view" style="background-color:cadetblue;display: none;"></div>
 
@@ -996,12 +998,12 @@
     $("#selectbyFName").kendoDropDownList({
       optionLabel: "選擇衛教文件名稱",
       dataTextField: "FName",
-      dataValueField: "FNo",
+      dataValueField: "fileURL",
       dataSource: {
         transport: {
           read: {
             dataType: "jsonp",
-            url: "/getFNamelist",
+            url: "/edu",
             method: "post",
           }
         }
@@ -1257,6 +1259,9 @@
     var lt = $("#selectByLType").val();
     labGrid(eeNo, lt);
   });
+  $("#selectbyFName").change(function(){
+    document.getElementById('edu_viewer').data = $("#selectbyFName").val();
+  })
   $("#edu").click(function () {
     $(".botton_btn").hide();
 

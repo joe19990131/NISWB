@@ -116,7 +116,7 @@ router.post('/edu', function (req, res, next){
     if (err) {
       console.log(err);
     } else {
-      res.json(rows);
+      res.jsonp(rows);
       console.log(rows);
       // res.end();
     }
