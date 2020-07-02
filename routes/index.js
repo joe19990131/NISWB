@@ -6,20 +6,21 @@ var app = express();
 
 //sql Setting
 var connStatus = 0;
+/*
 var conn = mysql.createConnection({
   host: 'localhost',
   prot: '3306',
   user: 'root',
   password: '123456',
   database: 'nis'
-});
-/*var conn = mysql.createConnection({
+});*/
+var conn = mysql.createConnection({
   host : 'JS108-36',
   prot : '3306',
   user: 'niswb',
   password : '123456',
   database : 'nis'
-});*/
+});
 //sql setting end
 /* GET home page. */
 router.get('/', function (req, res, next) {
@@ -81,26 +82,28 @@ router.post('/getFNamelist', function (req, res, next) {
 });
 
 router.post('/getBedlist', function (req, res, next) {
-  var sql = "select bedrecord.BNo,taboo_11,patientdata.Sex,bidx_01,bidx_02,bidx_03,bidx_04,bidx_05,bidx_06,bidx_07,bidx_08,bidx_09,bidx_10,callrequest,callcontent,dhdate from bedrecord left join bhdata using(BNo) left join bedidx using(pno) left join patientdata using(pno)  left join taboorecord using (pno) left join callrecording using (PNo) left join callrequirements using(callrequest) where bedrecord.NST = 12;";
+  var nstNo = req.body['nstNo'];
+  var sql = "select bedrecord.BNo,taboo_11,patientdata.Sex,bidx_01,bidx_02,bidx_03,bidx_04,bidx_05,bidx_06,bidx_07,bidx_08,bidx_09,bidx_10,callcontent,dhdate,iscalling from bedrecord left join bhdata using(BNo)  left join bedidx using(pno)  left join patientdata using(pno)   left join taboorecord using (pno) left join call_view using (PNo) left join callrequirements using(callrequest) where bedrecord.NST = "+nstNo+" order by bno;";
   console.log("i am SBL2");
   conn.query(sql, function (err, rows) {
-    //sconsole.log(rows);
+    console.log(rows);
     if (err) {
-      console.log(err);
+      //console.log(err);
     } else {
       res.json(rows);
-      console.log(rows);
+      //console.log(rows);
       //res.end();
     }
   })
 });
 router.post('/getbb', function (req, res, next) {
-  var sql = "select * from bbinfo";
+  var nstNo = req.body['nstNo']
+  var sql = "select BBCon,msgno from bbinfo where MsgClass = '01' and Playing = 1 and nst = " + nstNo + " ";
   console.log("i am SBL2");
   conn.query(sql, function (err, rows) {
     //sconsole.log(rows);
     if (err) {
-      console.log(err);
+      //console.log(err);
     } else {
       res.json(rows);
       console.log(rows);
@@ -114,10 +117,10 @@ router.post('/edu', function (req, res, next){
   conn.query(sql, function (err, rows) {
     // console.log(ros);
     if (err) {
-      console.log(err);
+      //console.log(err);
     } else {
       res.jsonp(rows);
-      console.log(rows);
+      //console.log(rows);
       // res.end();
     }
   })
@@ -137,7 +140,7 @@ router.post('/lab', function (req, res, next) {
     "order by Bno;"
 
   //console.log(req);
-  console.log("i am SBL");
+  console.log("i am SBL222220");
 
   if (connStatus == 0) {
     conn.connect(function (err) {
@@ -148,8 +151,8 @@ router.post('/lab', function (req, res, next) {
     });
   }
   conn.query(sql, function (err, rows) {
-    //console.log(rows);
-    console.log(req);
+    console.log(rows);
+    //console.log(req);
     if (err) {
       console.log(err);
     } else {

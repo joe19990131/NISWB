@@ -21,7 +21,7 @@
       <li class="li_horizental">
         <div id="station_info">
           <ul calss="ul_horizental">
-            <li class="li_horizental" id="NSTno" value="12">12</li>
+            <li class="li_horizental" id="NSTno" value=12>12</li>
 
             <li id="tel" class="li_horizental">
               <ul style="list-style: none;">
@@ -891,9 +891,11 @@
         <input id="selectbyFName" class="dropup" style="float: right;width: 1805px; margin: 5px; top: 8px;" />
       </div>
     </div>
-    
+    <div class="main_viewer" id="exit_view" style="background-color:cadetblue;display: none;">
+    <iframe src="stylesheets/images/12f.pdf" style="width: 100%; height: 100%;"></iframe>
   </div>
-  <div class="main_viewer" id="exit_view" style="background-color:cadetblue;display: none;"></div>
+  </div>
+  
 
   <div id="main_list">
     <div class="side_btn" id="backto_plist"><img class="side_btn_img" src="stylesheets/images/patient.png" width="35px"
@@ -1019,16 +1021,30 @@
   });
   var data;
   var clickCount = 0;
-
+  var i = 0;
+  var rep = 0;
+  var msgn = 0;
   function mapbb(){
     $.ajax({
       type: "POST",
       url: "/getbb",
-      //data: { "nstNo": $("#NSTno").val() },
+      data: { "nstNo": $("#NSTno").val() },
       dataType: "json",
     }).done(function (e) {
-      document.getElementById('marq').innerHTML = "12313123123";
+        var content = e[i].BBCon;
+        if(msgn == e[i].msgno){
+          i = 0;
+          document.getElementById('marq').innerHTML = content;
+          msgn = e[i].msgno;  
+        }else
+        {document.getElementById('marq').innerHTML = content;
+        msgn = e[i].msgno;}
+        
+      i++
+      
+      
     })
+    var timeoutbb = setTimeout(mapbb, 3000);
   }
    function mapBed(){
     // $(".beddiv").fadeIn(3000);
@@ -1042,7 +1058,7 @@
       data = new Array();  
       for (var i = 0; i < 49; i++){
         data[i] = new Array();
-        for(var j = 0;j<14;j++){
+        for(var j = 0;j<16;j++){
           data[i][j] = "";
         }
       }
@@ -1062,7 +1078,8 @@
         data[i][12] = e[i].bidx_10;
         data[i][13] = e[i].callrequest;
         data[i][14] = e[i].callcontent;
-        data[i][15] = e[i].dhdate;
+        data[i][15] = e[i].cancelTime;
+        data[i][16] = e[i].dhdate;
 
         if(e[i].Sex !=null){
         document.getElementById('id-' + i).innerHTML = data[i][0];
@@ -1076,7 +1093,7 @@
           }else if(data[i][1] != 1 && data[i][2] == 2){
             document.getElementById("img-"+i).src = "stylesheets/images/walkw.png";
           }
-        if(e[i].callrequest != null){
+        if(e[i].iscalling == 1){
           document.getElementById("focus-"+i).style.display = "inline";
           document.getElementById("callInfo-"+i).innerHTML = data[i][14];
           document.getElementById("callInfo-"+i).style.display = "inline";
@@ -1202,7 +1219,7 @@
         schema: {
           model: {
             fields: {
-
+          
               BNo: { type: "string" },
               CkCon: { type: "string" },
               ckdate: { type: "string" }
@@ -1260,7 +1277,9 @@
     labGrid(eeNo, lt);
   });
   $("#selectbyFName").change(function(){
+    document.getElementById('edu_viewer').data = "";
     document.getElementById('edu_viewer').data = $("#selectbyFName").val();
+    console.log($("#selectbyFName").val());
   })
   $("#edu").click(function () {
     $(".botton_btn").hide();
